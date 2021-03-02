@@ -10,8 +10,6 @@ import {
   Right,
   Button,
   View,
-  Header,
-  Title,
 } from "native-base";
 
 const ShopItem = ({ shop }) => {
