@@ -12,7 +12,7 @@ import {
   View,
 } from "native-base";
 
-const ShopItem = ({ shop }) => {
+const ProductItem = ({ product }) => {
   return (
     <View>
       <List>
@@ -24,7 +24,7 @@ const ShopItem = ({ shop }) => {
             />
           </Left>
           <Body>
-            <Text>{shop.name}</Text>
+            <Text>{product.name}</Text>
             <Text note numberOfLines={1}>
               Its time to build a difference . .
             </Text>
@@ -40,4 +40,4 @@ const ShopItem = ({ shop }) => {
   );
 };
 
-export default ShopItem;
+export default ProductItem;

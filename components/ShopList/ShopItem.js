@@ -10,11 +10,9 @@ import {
   Right,
   Button,
   View,
-  Header,
-  Title,
 } from "native-base";
 
-const ProductItem = ({ product }) => {
+const ShopItem = ({ shop, navigation }) => {
   return (
     <View>
       <List>
@@ -26,13 +24,16 @@ const ProductItem = ({ product }) => {
             />
           </Left>
           <Body>
-            <Text>{product.name}</Text>
+            <Text>{shop.name}</Text>
             <Text note numberOfLines={1}>
               Its time to build a difference . .
             </Text>
           </Body>
           <Right>
-            <Button transparent>
+            <Button
+              transparent
+              onPress={() => navigation.navigate("ShopDetail", { shop })}
+            >
               <Text>Details</Text>
             </Button>
           </Right>
@@ -42,4 +43,4 @@ const ProductItem = ({ product }) => {
   );
 };
 
-export default ProductItem;
+export default ShopItem;

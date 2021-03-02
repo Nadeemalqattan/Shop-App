@@ -1,14 +1,16 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Image } from "react-native";
-import { Card, CardItem, Text, Body, View } from "native-base";
-import ProductList from "./ProductList";
+import { Card, CardItem, Text, Body, View, Spinner } from "native-base";
 
-const ShopDetail = () => {
-  const shops = useSelector((state) => state.shops.shops);
+import ProductList from "../ProductList";
+
+const ShopDetail = ({ navigation, route }) => {
+  const loading = useSelector((state) => state.shops.loading);
+  const { shop } = route.params;
   const allProducts = useSelector((state) => state.products.products);
+  if (loading) return <Spinner />;
 
-  const shop = shops[0];
   const products = shop.products.map((product) =>
     allProducts.find((_product) => _product.id === product.id)
   );

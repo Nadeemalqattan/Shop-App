@@ -4,12 +4,14 @@ import { Spinner, List } from "native-base";
 
 import ShopItem from "./ShopItem";
 
-const ShopList = () => {
+const ShopList = ({ navigation }) => {
   const shops = useSelector((state) => state.shops.shops);
   const loading = useSelector((state) => state.shops.loading);
 
   if (loading) return <Spinner />;
-  const shopList = shops.map((shop) => <ShopItem shop={shop} key={shop.id} />);
+  const shopList = shops.map((shop) => (
+    <ShopItem shop={shop} key={shop.id} navigation={navigation} />
+  ));
 
   return <List>{shopList}</List>;
 };
